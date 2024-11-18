@@ -11,23 +11,25 @@ import { PokemonService } from '../pokemon.service';
 })
 export class PokemonListComponent {
 
-  pokemonList: Pokemon[] = [];
+  pokemonList!: Pokemon[];
   pokemonSelected: Pokemon | undefined;
 
   constructor(private router: Router, private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
     console.table(this.pokemonList);
-    this.pokemonList = this.pokemonService.getPokemonList();
+    this.pokemonService.getPokemonList().subscribe(pokemonList => this.pokemonList = pokemonList);
   }
 
   onSelectPokemon(pokemonId: number) {
     
-    this.pokemonSelected = this.pokemonService.getPokemonById(pokemonId);
+    this.pokemonService.getPokemonById(pokemonId).subscribe(pokemon => {
+      this.pokemonSelected = pokemon;
     if (this.pokemonSelected) {
       console.log(`Vous avez cliqué sur le pokémon ${this.pokemonSelected.name}`);
       this.router.navigate(['/pokemon', this.pokemonSelected.id]);
     } 
     else console.error(`'Pas de pôkémon pour l'id ${pokemonId}`);
+    });
   }
 }

@@ -1,13 +1,10 @@
-<!-- <ul id="pokemon-dropdown" class="dropdown-content">
-  <li *ngFor="let pokemon of pokemons"><a href="#" routerLink="/pokemon/{{pokemon.id}}">{{pokemon.name}}</a></li>
-</ul> -->
-
 <nav>
   <div class="nav-wrapper">
     <a href="#" class="brand-logo center">Pokédex</a>
-   <!--  <ul class="right hide-on-med-and-down">
-      <li><a class="dropdown-trigger" href="#!" data-target="pokemon-dropdown">Pokémons<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul> -->
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a (click)="setLanguage('FR')" >FR</a></li>
+      <li><a (click)="setLanguage('EN')" >EN</a></li>
+    </ul>
   </div>
 </nav>
 <router-outlet></router-outlet>

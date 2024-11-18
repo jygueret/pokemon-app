@@ -1,4 +1,4 @@
-<h1 class="center">Liste de pokémons !</h1>
+<h1 class="center">{{'pokemon.list' | translate}}</h1>
 <div class="row">
   <div class="col s6 m4" *ngFor="let pokemon of pokemonList">
     <div class="card horizontal hoverable" pkmBorderCard="red" (click)="onSelectPokemon(pokemon.id)">
