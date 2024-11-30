@@ -32,7 +32,7 @@ export class PokemonService {
   getPorkemonListType(): string[] {
     const typeSet = new Set<string>();
     POKEMONS.forEach((pokemon) => {
-      pokemon.$types.forEach((type) => typeSet.add(type));
+      pokemon.types.forEach((type) => typeSet.add(type));
     });
     console.table(typeSet);
     return Array.from(typeSet);
@@ -57,7 +57,7 @@ export class PokemonService {
     return this.httpService.delete(`api/pokemons/${pokemonId}`).pipe(
       tap((pokemon) => {
         this.getPokemonList().pipe(
-          tap(pokemons => pokemons.filter(pokemon => pokemon.$id !== pokemonId))
+          tap(pokemons => pokemons.filter(pokemon => pokemon.id !== pokemonId))
         )
       }),
       catchError((error) => {

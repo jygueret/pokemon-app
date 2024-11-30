@@ -19,7 +19,7 @@ export class PokemonFormComponent implements OnInit {
   }
 
   hasType(type: string): boolean {
-    return this.pokemon?.types.includes(type);
+    return this.pokemon.types.includes(type);
   }
 
   selectType($event: Event, type: string) {

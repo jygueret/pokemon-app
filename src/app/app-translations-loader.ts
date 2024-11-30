@@ -2,6 +2,7 @@ import { TranslateLoader } from '@ngx-translate/core';
 import { Observable, of } from 'rxjs';
 
 import * as TranslationsFR from './i18n/fr.json';
+import * as TranslationsEN from './i18n/en.json';
 
 
 interface Translation {
